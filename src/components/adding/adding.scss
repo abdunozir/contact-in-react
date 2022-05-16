@@ -1,0 +1,44 @@
+.adding-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+}
+.adding-container button {
+    color: white;
+    margin-left: 20px;
+}
+.adding-container button:hover {
+    // color: white !important;
+    background-color: azure;
+}
+.input-divs{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.adding-inputs-container{
+    width: 100%;
+
+    color: white;
+    // background-color: rgba(33, 30, 30, 0.515);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.adding-input{
+    width: 90%;
+    padding: 8px 10px;
+    outline: 0;
+    border: 2px solid #2b272789;
+    border-radius: 10px;
+}
