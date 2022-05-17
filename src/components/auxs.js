@@ -12,14 +12,14 @@ class auxs extends Component {
           firstname: "abdunozir",
           LastName: "abduvaliyev",
           Number: "+998990044042",
-          Categories: "WEB",
+          Categories: "Web developer",
         },
       ],
       sample: {
-        firstname: undefined,
-        LastName: undefined,
-        Number: undefined,
-        Categories: undefined,
+        firstname: "",
+        LastName: "",
+        Number: "",
+        Categories: "",
       },
     };
   }
@@ -34,6 +34,7 @@ class auxs extends Component {
         obj.lastName = e.target.value;
       }
       if (e.target.id == "Number") {
+        console.log(e.target);
         obj.Number = e.target.value;
       }
       if (e.target.id == "select") {
@@ -43,7 +44,6 @@ class auxs extends Component {
       this.setState({ sample: { ...this.state.sample, ...obj } });
     };
     const submitted = (e) => {
-      console.log("hello");
       this.setState({
         person: [...this.state.person, { ...this.state.sample }],
       });
@@ -56,7 +56,15 @@ class auxs extends Component {
             changeObj={() => changeObj}
             submitted={() => submitted}
           ></Adding>
-          <ShowingCard person={this.state.person} />
+          <div className="filter-con">
+            <select class="form-select" id="inputGroupSelect01">
+              <option selected>filter</option>
+              <option value="Web developer">Web developer</option>
+              <option value="android developer">android developer</option>
+              <option value="desctop developer">desctop developer</option>
+            </select>
+            <ShowingCard person={this.state.person} />
+          </div>
         </div>
       </Container>
     );

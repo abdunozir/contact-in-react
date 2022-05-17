@@ -35,7 +35,7 @@ class adding extends Component {
               type="number"
               className="adding-input"
               placeholder="tel: "
-              id="num"
+              id="Number"
               onChange={this.props.changeObj(Event)}
             />
           </div>
