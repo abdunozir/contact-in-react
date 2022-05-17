@@ -12,4 +12,20 @@
 
 .card{
     width: 30% !important;
+    position: relative;
 }
+
+.badge{
+    position: absolute;
+    background-color: red;
+    top: -4px;
+    left: -1px;
+    cursor: pointer;
+    border-radius: none !important;
+    display: flex;
+    align-items: flex-end;
+}
+
+// .badge:active{
+
+// }

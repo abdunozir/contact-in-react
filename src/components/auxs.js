@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "animate.css";
 import Container from "./container/container";
 import "./auxs.scss";
 import Adding from "./adding/adding";
@@ -7,14 +8,8 @@ class auxs extends Component {
   constructor() {
     super();
     this.state = {
-      person: [
-        {
-          firstname: "abdunozir",
-          LastName: "abduvaliyev",
-          Number: "+998990044042",
-          Categories: "Web developer",
-        },
-      ],
+      person: [{}],
+      newArr: [],
       sample: {
         firstname: "",
         LastName: "",
@@ -23,22 +18,36 @@ class auxs extends Component {
       },
     };
   }
+
+  filterFunc = (e) => {
+    if (e.target.value === "All") {
+      this.setState({
+        newArr: [...this.state.person],
+      });
+    } else {
+      this.setState({
+        newArr: [
+          ...this.state.person.filter((el) => el.Categories == e.target.value),
+        ],
+      });
+    }
+  };
+
   render() {
     const changeObj = (e) => {
-      // console.log(e.target.id);
       let obj = {};
-      if (e.target.id == "name") {
+      if (e.target.id === "name") {
         obj.firstname = e.target.value;
       }
-      if (e.target.id == "lastName") {
+      if (e.target.id === "lastName") {
         obj.lastName = e.target.value;
       }
-      if (e.target.id == "Number") {
-        console.log(e.target);
+      if (e.target.id === "Number") {
         obj.Number = e.target.value;
       }
-      if (e.target.id == "select") {
+      if (e.target.id === "select") {
         obj.Categories = e.target.value;
+        obj.id = this.state.person[this.state.person.length - 1].id + 1;
       }
 
       this.setState({ sample: { ...this.state.sample, ...obj } });
@@ -47,6 +56,8 @@ class auxs extends Component {
       this.setState({
         person: [...this.state.person, { ...this.state.sample }],
       });
+      this.setState({ newArr: [...this.state.person] });
+      console.log(this.state.newArr);
     };
 
     return (
@@ -57,13 +68,19 @@ class auxs extends Component {
             submitted={() => submitted}
           ></Adding>
           <div className="filter-con">
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected>filter</option>
+            <select
+              className="form-select"
+              onChange={this.filterFunc}
+              id="filter"
+            >
+              <option defaultValue value="All">
+                All
+              </option>
               <option value="Web developer">Web developer</option>
               <option value="android developer">android developer</option>
               <option value="desctop developer">desctop developer</option>
             </select>
-            <ShowingCard person={this.state.person} />
+            <ShowingCard newArr={this.state.newArr} />
           </div>
         </div>
       </Container>
