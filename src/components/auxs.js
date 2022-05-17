@@ -8,7 +8,15 @@ class auxs extends Component {
   constructor() {
     super();
     this.state = {
-      person: [{}],
+      person: [
+        {
+          id: 1,
+          firstname: "abdunozir",
+          LastName: "abduvaliyev",
+          Number: "+998990044042",
+          Categories: "Web developer",
+        },
+      ],
       newArr: [],
       sample: {
         firstname: "",
@@ -57,7 +65,6 @@ class auxs extends Component {
         person: [...this.state.person, { ...this.state.sample }],
       });
       this.setState({ newArr: [...this.state.person] });
-      console.log(this.state.newArr);
     };
 
     return (
